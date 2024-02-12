@@ -1,6 +1,6 @@
 # youtube-clone Project Setup
 
-This guide will help you set up a new project using Vite, a blazing fast frontend build tool.
+This guide will help you set up youtube-clone
 
 ## Prerequisites
 
@@ -11,9 +11,9 @@ Before you begin, ensure you have the following installed:
 
 ## Getting Started
 
-To create a new Vite project, follow these steps:
+To setup youtube-clone, follow these steps:
 
-1. **Initialize a new project:**
+1. **Install required dependencies:**
 
    ```bash
-   npm init vite@latest my-vite-project
+   npm install
