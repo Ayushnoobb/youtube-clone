@@ -8,11 +8,22 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 1rem;
     padding-inline: 1.5rem;
+    margin-bottom: 3rem;
+    @include mq("tablet"){
+      gap: 2.5rem;
+      margin-bottom: 6rem;
+    }
 
     &-item{
-      width: calc(100% / 5 - 2.5rem);
+      width: calc(100% / 2 - 1rem);
+      @include mq("tablet"){
+        width: calc(100% / 3 - 2.5rem);
+      }
+      @include mq("tablet-wide"){
+        width: calc(100% / 5 - 2.5rem);
+      }
 
       &:hover{
         color: inherit;
@@ -28,7 +39,18 @@
     // height: 180px;
   }
   &__title{
-
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Change to the desired number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @include mq("tablet"){
+      font-size: 1.4rem;
+    }
+    @include mq("tablet-wide"){
+      font-size: 1.6rem;
+    }
   }
   &__player{
     width:100%;
@@ -40,40 +62,66 @@
 
   &__player{
     width:100%;
-    height: 70vh;
+    height: 40vh;
     margin-top: 3rem;
+    
+    @include mq("tablet"){
+      height: 70vh;
+    }
   }
   &__individual{
     &-detail{
       margin-top: 1.5rem;
     }
     &-heading>a{
-      font-size: 2rem;
       font-weight: 700;
+      font-size: 1.6rem;
+      @include mq ("tablet"){
+        font-size: 2rem;
+      }
     }
     &-creator{
-      font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      font-size: 1.2rem;
+      @include mq("tablet"){
+        font-size: 1.4rem;
+      }
     }
     &-creation-date,&-description{
-      font-size: 1.2rem;
       color: var(--c-ham-line);
+      font-size: 1rem;
+      @include mq("tablet"){
+        font-size: 1.2rem;
+      }
     }
   }
 
   &__threats{
-    margin-bottom: 6rem;
-    width: 35%;
+    width: 100%;
+    margin-bottom: 3rem;
+    @include mq("tablet"){
+      margin-bottom: 6rem;
+      width: 50%;
+    }
+    @include mq("tablet-wide"){
+      width: 35%;
+    }
   }
   &__row{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    @include mq("tablet"){
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   &-recommended{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    @include mq("tablet"){
+      align-items: flex-end;
+    }
   }
 }
 
@@ -111,7 +159,11 @@
 
 .video__threats-title{
   margin-block: 2.5rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  text-align: left;
+  @include mq("tablet"){
+    font-size: 2rem;
+  }
 }
 
 .like-icon{
@@ -127,8 +179,16 @@
   align-items: flex-end;
   max-height: 100vh;
   overflow-y: scroll;
+  margin-bottom: 3rem;
+
+  @include mq("tablet"){
+    margin-bottom: 0;
+  }
 }
 .videos__list-item-individual{
-  width: calc(100% / 3);
+  width: 100%;
   display: block;
+  @include mq("tablet"){
+    width: calc(100% / 3);
+  }
 }

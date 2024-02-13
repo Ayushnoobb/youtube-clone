@@ -31,7 +31,6 @@ function Home(): JSX.Element {
       }
       const data = await res.json();
       setVideos(data.items);
-      console.log(data)
     } catch (error) {
       console.error('Error fetching videos:', error);
     }
@@ -42,7 +41,7 @@ function Home(): JSX.Element {
   }, []);
 
   if (videos.length === 0) {
-    return <p>Loading...</p>;
+    return <div className="container"><p>Loading...</p></div>;
   }
 
   return (
@@ -51,7 +50,7 @@ function Home(): JSX.Element {
         <div className="container">
           <ul className="videos__list">
             {videos.map((video,id) => (
-              <Link   to={`/videos/${video.id.videoId}`} state={video} className='videos__list-item'>
+              <Link   to={`/videos/${video.id.videoId}`} key={id} state={video} className='videos__list-item'>
                 <li key={id} className=''>
                   <img src={video.snippet.thumbnails.default.url} alt="" className='videos__thumbnail' />
                   <h2 className="videos__title" title={video.snippet.title}>{video.snippet.title}</h2>

@@ -1,10 +1,13 @@
 import AppRouter from "./AppRouter"
 import "./App.css"
+import { AuthProvider } from "./Auth"
 
 const App = () =>{
   return (
     <>
-      <AppRouter />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </>
   )
 }

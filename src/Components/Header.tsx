@@ -1,14 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import brandLogo from "../assets/img/YouTube-Logo.wine.svg";
 import SearchIcon from '../assets/img/search-icon.svg';
 import voiceSearchIcon from "../assets/img/mic-11.svg";
 import cameraIcon from "../assets/img/camera.svg";
 import bellIcon from "../assets/img/bell-icon.svg"
 import { Link } from "react-router-dom";
+import { AuthContext , AuthContextType } from "../Auth";
+
+
 
 const Header: React.FC = () => {
+  const authContext = useContext<AuthContextType>(AuthContext);
   const [searchText , setSearchText] = useState<string>('');
   const form = useRef<HTMLFormElement>(null);
+
+  const { isLoggedIn} = authContext;
+
+  console.log(isLoggedIn)
 
   const handleClick = () => {
     setSearchText('');
@@ -52,9 +60,17 @@ const Header: React.FC = () => {
           <li className="header__feature header-feature-notification notification-alert" title="Notifications">
             <img src={bellIcon} alt="bell-icon header-icon"  className="header__features-icon header-icon"/>
           </li>
-          <li className="header__feature header-feature-profile user-profile" title="Notifications">
-            <div className="user-profile-icon" title="User profile"></div>
-          </li>
+          {
+            isLoggedIn ? (
+              <li className="header__feature header-feature-profile user-profile" title="Notifications">
+                <div className="user-profile-icon" title="Hello Ayush"></div>
+              </li>
+            ):(
+              <li className="header__feature header-feature-profile user-profile user-profile-link" title="Notifications">
+                <Link to={"/login"}>Login</Link>
+              </li>
+            )
+          }
         </ul>
       </div>
     </header>
