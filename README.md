@@ -28,7 +28,7 @@ Open the root directory in VS Code , open terminal
 
 After completion of installing dependencies , within the root directory , bash the command
 
-3. **Install required dependencies:**
+3. **Running website**
 
    ```bash
    npm run dev
